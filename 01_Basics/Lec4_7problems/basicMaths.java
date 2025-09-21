@@ -1,20 +1,21 @@
-
 public class basicMaths {
 
-    public static void CountDigits(int n) {
+    public static int CountDigits(int n) {
+        int temp = n;
+        int count = 0;
 
-        int counter = 0;
-        while (n > 0) {
-            int lastDigit = n % 10;
-            counter = counter + 1;
-            n = n / 10;
-
+        while (temp != 0) {
+            int rem = temp % 10;
+            if (rem != 0 && n % rem == 0) {
+                count++;
+            }
+            temp /= 10;
         }
-
+        return count;
     }
 
     public static void main(String[] args) {
-
-        CountDigits(7789);
+        int ans = CountDigits(7780);
+        System.out.println(ans); // print result
     }
 }
